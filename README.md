@@ -71,6 +71,7 @@ GUESS-WORD-GAME/
    cd guess-word-game
    ```
 
+
 2. **Create virtual environment**:
    ```bash
    python -m venv venv
@@ -189,5 +190,6 @@ Please use GitHub Issues to report bugs or request features. When reporting bugs
 - Flask community for excellent documentation
 - Contributors and testers
 
----
+
+````
 
