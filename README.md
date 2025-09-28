@@ -64,8 +64,6 @@ Players can guess words within a daily limit, and admins can view reports on gam
    ```
 
 
----
-
 
 ````
 
