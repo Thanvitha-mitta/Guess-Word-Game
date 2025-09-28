@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Admin Dashboard</h2>
+<div style="text-align: center; margin: 30px 0;">
+    <a href="{{ url_for('daily_report') }}" class="btn" style="margin: 10px;">📊 Daily Report</a>
+    <a href="{{ url_for('user_report') }}" class="btn btn-secondary" style="margin: 10px;">👥 User Report</a>
+</div>
+
+<div style="margin-top: 40px; text-align: center;">
+    <h3>Admin Functions</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
+        <div style="padding: 20px; background-color: #f8f9fa; border-radius: 8px;">
+            <strong>📊 Daily Reports</strong><br>
+            View daily statistics including number of users and correct guesses for any specific date
+        </div>
+        <div style="padding: 20px; background-color: #f8f9fa; border-radius: 8px;">
+            <strong>👥 User Reports</strong><br>
+            View individual user performance including dates played, words tried, and success rate
+        </div>
+    </div>
+</div>
+{% endblock %}

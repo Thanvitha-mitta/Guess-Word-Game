@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Guess the Word Game{% endblock %}</title>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <!-- Additional page-specific styles -->
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 Guess the Word Game</h1>
+            {% if session.username %}
+                <p>Welcome, {{ session.username }}!</p>
+            {% endif %}
+        </div>
+        
+        {% if session.user_id %}
+        <div class="nav">
+            <a href="{{ url_for('dashboard') }}">📊 Dashboard</a>
+            {% if session.user_type != 'admin' %}
+                <a href="{{ url_for('game') }}">🎮 New Game</a>
+            {% endif %}
+            {% if session.user_type == 'admin' %}
+                <a href="{{ url_for('daily_report') }}">📈 Daily Report</a>
+                <a href="{{ url_for('user_report') }}">👥 User Report</a>
+            {% endif %}
+            <a href="{{ url_for('logout') }}">🚪 Logout</a>
+        </div>
+        {% endif %}
+        
+        <div class="content">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="flash-messages">
+                        {% for category, message in messages %}
+                            <div class="flash-message flash-{{ category }}">{{ message }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+            
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+    
+    <!-- External JavaScript -->
+    <script src="{{ url_for('static', filename='js/game.js') }}"></script>
+    
+    <!-- Additional page-specific scripts -->
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

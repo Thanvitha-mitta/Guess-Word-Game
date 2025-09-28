@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Play Game - Guess the Word{% endblock %}
+
+{% block content %}
+<div class="welcome-section">
+    <h2>🎯 Guess the Word Game</h2>
+    
+    <div class="game-info" id="game-info">
+        <span id="guesses-left">Guesses left: {{ config.MAX_GUESSES_PER_GAME }}</span>
+    </div>
+    
+    <div class="game-board" id="game-board">
+        <!-- Game board will be populated by JavaScript -->
+    </div>
+    
+    <div class="game-input" id="input-section">
+        <input type="text" 
+               id="guess-input" 
+               placeholder="Enter {{ config.WORD_LENGTH }}-letter word" 
+               maxlength="{{ config.WORD_LENGTH }}"
+               autocomplete="off"
+               spellcheck="false">
+        <br><br>
+        <button id="submit-guess" class="btn btn-large">Submit Guess</button>
+    </div>
+    
+    <div id="game-result" class="game-result" style="display: none;"></div>
+    <div id="game-error" style="display: none;"></div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Initialize the game when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        window.gameController = new WordGameController();
+    });
+</script>
+{% endblock %}

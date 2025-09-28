@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Player Dashboard</h2>
+<div class="stats">
+    <div class="stat-card">
+        <div class="stat-number">{{ games_today }}</div>
+        <div class="stat-label">Games Played Today</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number">{{ 3 - games_today }}</div>
+        <div class="stat-label">Games Remaining</div>
+    </div>
+</div>
+
+{% if can_play %}
+    <div style="text-align: center; margin: 30px 0;">
+        <a href="{{ url_for('game') }}" class="btn" style="font-size: 18px; padding: 15px 30px;">🎮 Start New Game</a>
+    </div>
+{% else %}
+    <div style="text-align: center; margin: 30px 0; padding: 20px; background-color: #fff3cd; border: 1px solid #ffeaa7; border-radius: 8px;">
+        <h3>Daily Limit Reached</h3>
+        <p>You have played 3 games today. Come back tomorrow for more!</p>
+    </div>
+{% endif %}
+
+<div style="margin-top: 40px; text-align: center;">
+    <h3>Game Rules</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+        <div style="padding: 15px; background-color: #f8f9fa; border-radius: 8px;">
+            <strong>🎯 Objective</strong><br>
+            Guess the 5-letter word in 5 attempts
+        </div>
+        <div style="padding: 15px; background-color: #f8f9fa; border-radius: 8px;">
+            <strong>📅 Daily Limit</strong><br>
+            Maximum 3 games per day
+        </div>
+        <div style="padding: 15px; background-color: #f8f9fa; border-radius: 8px;">
+            <strong>🎨 Color Coding</strong><br>
+            Green=Correct, Orange=Wrong Position, Grey=Not in Word
+        </div>
+    </div>
+</div>
+{% endblock %}

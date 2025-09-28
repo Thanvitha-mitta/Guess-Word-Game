@@ -1,0 +1,32 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment
+.env
+.venv/
+venv/
+ENV/
+
+# VS Code settings
+.vscode/
+
+# Byte-compiled
+*.egg-info/
+*.egg
+dist/
+build/
+
+# SQLite database files
+instance/*.db
+*.sqlite3
+
+# Logs
+*.log
+
+# Pytest / Coverage
+htmlcov/
+.coverage
+.pytest_cache/
