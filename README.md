@@ -40,7 +40,6 @@ Players can guess words within a daily limit, and admins can view reports on gam
    ```bash
    git clone https://github.com/YOUR-USERNAME/guess-the-word.git
    cd guess-the-word
-````
 
 2. Create and activate a virtual environment:
 
@@ -66,4 +65,7 @@ Players can guess words within a daily limit, and admins can view reports on gam
 
 
 ---
+
+
+````
 
